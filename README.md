@@ -4,27 +4,27 @@ This will be a mobile/web app for pets to gossip,rant,share thoughts. Yup, it's 
 
 The user (your pet) will be able to tweet and other users should be able to comment on this tweet.
 
-###DB Models:
+## DB Models:
 
 User || Tweet || Comment
 
 
-####User
+####  User
 
 + User has many tweets
 + user has many comments
 
 
-####Tweet
+####  Tweet
 
 + a tweet belongs to one user
 + a tweet has many comments
 
 
-####Comment  
+####  Comment  
 + comments belong to one tweet
 
-###API paths
+####  API paths
 1. WordUp.com/home
 1. WordUp.com/userName
 1. WordUp.com/compose/tweet
