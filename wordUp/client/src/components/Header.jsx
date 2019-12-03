@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Header(props) {
   return (
     <header>
-      <h1><Link to='/' onClick={props.resetForm}>School App</Link></h1>
+      <h1><Link to='/' onClick={props.resetForm}>WordUp</Link></h1>
       <div>
         {props.currentUser
           ?

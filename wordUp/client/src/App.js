@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import Header from './components/Header';
+import { withRouter } from 'react-router';
 import './App.css';
 
 import {
@@ -19,8 +20,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      teachers: [],
-      teacherForm: {
+      users: [],
+      userForm: {
         name: "",
         photo: ""
       },
@@ -168,4 +169,5 @@ class App extends Component {
 }
 
 
-export default App;
+export default withRouter(App);
+
