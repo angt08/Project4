@@ -11,14 +11,23 @@ const Login = (props) => {
       <hr />
       <form onSubmit={(e) => {
         e.preventDefault();
-        props.handleLogin();}} >
+        props.handleLogin();
+      }} >
         <p>Username:</p>
-        <input name="username" type="text" value={props.formData.username} onChange={props.handleChange} />
+        <input name="username"
+          type="text"
+          value={props.formData.username}
+          onChange={props.handleChange} />
         <p>Password:</p>
-        <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
-        <hr/>
+        <input name="password"
+          type="password"
+          value={props.formData.password}
+          onChange={props.handleChange} />
+        <hr />
         <button>Login</button>
+        <button>
         <Link to="/register">Register</Link>
+        </button>
       </form>
     </div>
   );
