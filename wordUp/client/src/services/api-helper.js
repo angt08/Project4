@@ -5,7 +5,7 @@ const baseUrl = 'http://localhost:3000'
 const api = axios.create({
   baseURL: baseUrl
 })
-
+// 
 export const loginUser = async (loginData) => {
   const resp = await api.post('/auth/login', loginData)
   localStorage.setItem('authToken', resp.data.token);
@@ -19,6 +19,8 @@ export const registerUser = async (registerData) => {
   api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
   return resp.data.user
 }
+
+// 
 
 export const verifyUser = async () => {
   const token = localStorage.getItem('authToken');
@@ -49,3 +51,36 @@ export const destroyUser = async (id) => {
   const resp = await api.delete(`/users/${id}`)
   return resp.data
 }
+
+
+// tweets
+export const getAllTweets = async () => {
+  const resp = await api.get('/tweets')
+  return resp.data
+}
+
+export const updateTweet = async (id, data) => {
+  const resp = await api.put(`/tweets/${id}`, { user: data })
+  return resp.data
+}
+export const createTweet = async (data) => {
+  const resp = await api.post('/tweets', { tweet: data })
+  debugger;
+  return resp.data
+}
+
+export const destroyTweet = async (id) => {
+  const resp = await api.delete(`/tweets/${id}`)
+  return resp.data
+}
+
+
+
+
+//comments 
+// export const getAllComments = async () => {
+//   const resp = await applicationCache.get('/comments')
+//   return resp.data
+// }
+
+

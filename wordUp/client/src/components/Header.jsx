@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 export default function Header(props) {
   return (
     <header>
-      <h1><Link to='/' onClick={props.resetForm}>WordUp</Link></h1>
+      <h1>
+        <Link to='/all-tweets' onClick={props.resetForm}>WordUp</Link>
+      </h1>
       <div>
         {props.currentUser
           ?
@@ -15,6 +17,7 @@ export default function Header(props) {
           :
           <button onClick={props.handleLoginButton}>Login/register</button>
         }
+       
       </div>
     </header>
   )

@@ -5,18 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create([
-  {
-    username: "Juju",
-    image_url:"",
-    email: "Juju@123.com",
-    password: "jujuju"
-  },
-  {
-    name: "Skip",
-    image_url:"",
-    email: "skip@123.com",
-    password: "angang"
-  },
-  
-])
+user = User.create({
+  username: 'kale',
+  email: 'salad@salad.com',
+  password: '345678',
+})
+tweet = Tweet.create({
+  content: 'My face when',
+  image: 'https://i.imgur.com/bOZLAxq.png',
+  user_id: 1
+})
+comment = Comment.create({
+  content: 'LMFAO',
+ 
+})
+puts "#{User.count} Users created!"

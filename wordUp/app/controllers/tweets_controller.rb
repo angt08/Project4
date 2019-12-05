@@ -1,6 +1,8 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :update, :destroy]
+  before_action :authorize_request, except: [ :index, :show]
 
+  
   # GET /tweets
   def index
     @tweets = Tweet.all
@@ -16,7 +18,8 @@ class TweetsController < ApplicationController
   # POST /tweets
   def create
     @tweet = Tweet.new(tweet_params)
-
+    @current_user.tweets << @tweet
+    byebug
     if @tweet.save
       render json: @tweet, status: :created, location: @tweet
     else
@@ -46,6 +49,7 @@ class TweetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tweet_params
-      params.fetch(:tweet, {})
+      # params.fetch(:tweet, {})
+      params.require(:tweet).permit(:content, :image, :user_id)
     end
 end
