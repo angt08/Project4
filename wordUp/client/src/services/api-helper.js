@@ -65,7 +65,7 @@ export const updateTweet = async (id, data) => {
 }
 export const createTweet = async (data) => {
   const resp = await api.post('/tweets', { tweet: data })
-  debugger;
+ 
   return resp.data
 }
 

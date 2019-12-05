@@ -19,7 +19,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @current_user.tweets << @tweet
-    byebug
+   
     if @tweet.save
       render json: @tweet, status: :created, location: @tweet
     else

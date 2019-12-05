@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class AllTweetsHome extends React.Component {
+export  default class AllTweetsHome extends React.Component {
   
 
   
@@ -17,7 +17,9 @@ export default class AllTweetsHome extends React.Component {
               <button onClick={() => {
                   this.props.deleteTweet(tweet.id);
                   // this.props.history.push('/all-tweets')
-                }}>Delete</button>
+              }}>
+                Delete
+                </button>
             </div>
           ))
         }

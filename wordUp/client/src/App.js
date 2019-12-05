@@ -144,6 +144,8 @@ class App extends Component {
     })
   }
 
+  
+//  add/delete a tweet
   newTweet = async (e) => {
     e.preventDefault();
     const tweet = await createTweet(this.state.tweetForm);
@@ -161,6 +163,7 @@ class App extends Component {
     this.setState(prevState => ({
       tweets: prevState.tweets.filter(tweet => tweet.id !== id)
     }))
+    this.props.history.push('/all-tweets')
   }
 
   // -------------- AUTH ------------------
