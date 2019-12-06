@@ -7,20 +7,22 @@ const Login = (props) => {
 
   return (
     <div className="auth-container">
-      <h2>login</h2>
-      <hr />
       <form onSubmit={(e) => {
         e.preventDefault();
         props.handleLogin();
       }} >
-        <p>Username:</p>
+       
+      <h2>login</h2>
+      <hr />
         <input name="username"
           type="text"
+          placeholder="User name"
           value={props.formData.username}
           onChange={props.handleChange} />
-        <p>Password:</p>
+        
         <input name="password"
           type="password"
+          placeholder="Password"
           value={props.formData.password}
           onChange={props.handleChange} />
         <hr />

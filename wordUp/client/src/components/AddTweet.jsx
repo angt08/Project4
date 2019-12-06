@@ -6,18 +6,18 @@ export default function AddTweet(props) {
 
   return (
     <>
-      <h2>Create a new tweet</h2>
+      <h2>Add new </h2>
       <form onSubmit={props.newTweet}>
-        <h4>Saywhat:</h4>
         <input
           type="text"
+          placeholder="What you thinkin'?"
           name="content"
           value={content}
           onChange={props.handleChange} />
 
-        <h4>enter image/gif:</h4>
         <input
           type="text"
+          placeholder="Enter image/gif"
           name="image"
           value={image}
           onChange={props.handleChange} />

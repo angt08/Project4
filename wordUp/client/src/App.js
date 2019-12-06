@@ -165,14 +165,16 @@ class App extends Component {
   editTweet = async () => {
     const { tweetForm } = this.state
     await updateTweet(tweetForm.id, tweetForm);
-    // this.setState(prevState => (
-    //   {
-    //     tweets: prevState.tweets.map(tweet => {
-    //       return tweet.id === tweetForm.id ? tweetForm : tweet
-    //     }),
-    //   }
-    // ))
+    this.setState(prevState => (
+      {
+        tweets: prevState.tweets.map(tweet => {
+          return tweet.id === tweetForm.id ? tweetForm : tweet
+        }),
+      }
+    ))
   }
+
+
 
   handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -296,6 +298,7 @@ class App extends Component {
             editTweet={this.editTweet}
             tweetData={this.state.tweetForm}
             handleFormChange={this.handleFormChange}
+           
 
           />} />
 

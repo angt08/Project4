@@ -2,27 +2,26 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 function EditTweetForm(props) {
-
+  const { content, image } = props.tweetData
   return (
     <>
       <form onSubmit={props.handleFormChange}>
-     
-        <p>gif/image:</p>
+
+
         <input
           type="text"
           name="image"
-          value={props.tweetForm}
+          placeholder="image/gif url"
+          value={image}
           onChange={props.handleFormChange} />
-         
-        <p>
-          content:
-        </p> 
+
         <input
           type="text"
-          content="content"
-          value={props.tweetForm}
+          name="content"
+          placeholder="What you thinkin'?"
+          value={content}
           onChange={props.handleFormChange} />
-        
+
         <button>Submit</button>
       </form>
     </>
