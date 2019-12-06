@@ -5,12 +5,9 @@ import Register from './components/Register';
 import Header from './components/Header';
 import { withRouter } from 'react-router';
 import AllTweetsHome from './components/AllTweetsHome';
+import EditTweetForm from './components/EditTweetForm';
 import AddTweet from './components/AddTweet';
-import { createTweet } from './services/api-helper.js'
-import './App.css';
-import { getAllTweets,destroyTweet} from './services/api-helper';
-
-
+import { getAllTweets, destroyTweet, updateTweet, createTweet } from './services/api-helper';
 import {
   createUser,
   readAllUsers,
@@ -19,14 +16,18 @@ import {
   loginUser,
   registerUser,
   verifyUser
-} from './services/api-helper'
+} from './services/api-helper';
+import './App.css';
+
 
 
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       addtweet: '',
+      updateTweet: '',
       addcomment: '',
       destroyTweet: '',
       users: [],
@@ -48,16 +49,16 @@ class App extends Component {
     };
   }
 
-  
+
   async componentDidMount() {
     this.getUsers();
     const currentUser = await verifyUser();
     if (currentUser) {
       this.setState({ currentUser })
       const tweets = await getAllTweets()
-        this.setState({
-          tweets
-        })
+      this.setState({
+        tweets
+      })
     }
   }
 
@@ -144,8 +145,8 @@ class App extends Component {
     })
   }
 
-  
-//  add/delete a tweet
+
+  //  add/update/delete a tweet
   newTweet = async (e) => {
     e.preventDefault();
     const tweet = await createTweet(this.state.tweetForm);
@@ -153,7 +154,29 @@ class App extends Component {
       tweets: [...prevState.tweets, tweet],
       tweetForm: {
         content: "",
-        image: ""
+        image: " "
+      }
+    }))
+  }
+
+  editTweet = async () => {
+    const { tweetForm } = this.state
+    await updateTweet(tweetForm.id, tweetForm);
+    this.setState(prevState => (
+      {
+        tweets: prevState.tweets.map(tweet => {
+          return tweet.id === tweetForm.id ? tweetForm : tweet
+        }),
+      }
+    ))
+  }
+
+  handleFormChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      tweetForm: {
+        ...prevState.tweetForm,
+        [name]: value
       }
     }))
   }
@@ -165,6 +188,9 @@ class App extends Component {
     }))
     this.props.history.push('/all-tweets')
   }
+
+
+
 
   // -------------- AUTH ------------------
 
@@ -204,6 +230,9 @@ class App extends Component {
       }
     }));
   }
+  // 
+
+
 
   render() {
     return (
@@ -215,11 +244,13 @@ class App extends Component {
         />
         {
           this.state.currentUser ?
-            <><Link to={"/all-tweets"}
-              render={<AllTweetsHome />}>
-              <button>All my tweets</button>
-            </Link>
-              
+            <>
+              <Link
+                to={"/all-tweets"}
+                render={<AllTweetsHome />}>
+                <button>All my tweets</button>
+              </Link>
+
               <Link to={`/add-tweet`}>
                 <button>Create a tweet</button>
               </Link> </> :
@@ -245,6 +276,8 @@ class App extends Component {
           render={() => <AllTweetsHome
             tweets={this.state.tweets}
             deleteTweet={this.deleteTweet}
+            editTweet={this.editTweet}
+            handleFormChange={this.handleFormChange}
           />} />
 
 
@@ -253,11 +286,18 @@ class App extends Component {
             handleChange={this.handleCreateFormChange}
             newTweet={this.newTweet}
             tweetData={this.state.tweetForm}
-            
-          />}
+          />} />
 
-        />
-        
+        <Route exact path="/edit-tweet"
+          render={(props) => <EditTweetForm
+            handleChange={this.handleFormChange}
+            editTweet={this.editTweet}
+            tweetData={this.state.tweetForm}
+            handleFormChange={this.handleFormChange}
+
+          />} />
+
+
 
 
 

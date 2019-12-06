@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export  default class AllTweetsHome extends React.Component {
-  
+export default class AllTweetsHome extends React.Component {
 
-  
 
   render() {
     return (
@@ -11,15 +10,25 @@ export  default class AllTweetsHome extends React.Component {
         {
           this.props.tweets.map(tweet => (
             <div key={tweet.id} className="tweet">
-              <img src={tweet.image} alt=" a meme" />
+              <img src={tweet.image} alt="a meme" />
               <p>{tweet.content}</p>
 
               <button onClick={() => {
-                  this.props.deleteTweet(tweet.id);
-                  // this.props.history.push('/all-tweets')
+                this.props.deleteTweet(tweet.id);
+                // this.props.history.push('/all-tweets')
               }}>
                 Delete
                 </button>
+
+
+
+              <Link to='/edit-tweet' onClick={this.props.tweetForm}>
+                <button>
+                  Edit
+               </button>
+              </Link>
+
+
             </div>
           ))
         }
