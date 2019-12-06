@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000'
+// const baseUrl = 'http://localhost:3000'
+
+const baseUrl = 'https://afternoon-refuge-67431.herokuapp.com'
 
 const api = axios.create({
-  baseURL: baseUrl
+  baseUrl
 })
 // 
 export const loginUser = async (loginData) => {
@@ -66,7 +68,7 @@ export const updateTweet = async (id, data) => {
 
 export const createTweet = async (data) => {
   const resp = await api.post('/tweets', { tweet: data })
- 
+
   return resp.data
 }
 
