@@ -13,11 +13,11 @@ class AuthenticationController < ApplicationController
   end
 
   def verify
-    # @user = {
-    #   id: @current_user[:id],
-    #   username: @current_user[:username],
-    #   email: @current_user[:email]
-    # }
+    @user = {
+      id: @current_user[:id],
+      username: @current_user[:username],
+      email: @current_user[:email]
+    }
   
     render json: @current_user ,status: :ok
   end

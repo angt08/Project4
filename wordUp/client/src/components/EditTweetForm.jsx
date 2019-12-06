@@ -5,7 +5,8 @@ function EditTweetForm(props) {
 
   return (
     <>
-      <form onSubmit={props.editTweet}>
+      <form onSubmit={props.handleFormChange}>
+     
         <p>gif/image:</p>
         <input
           type="text"

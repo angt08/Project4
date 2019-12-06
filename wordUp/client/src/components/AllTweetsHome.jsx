@@ -10,8 +10,8 @@ export default class AllTweetsHome extends React.Component {
         {
           this.props.tweets.map(tweet => (
             <div key={tweet.id} className="tweet">
-              <img src={tweet.image} alt="a meme" />
               <p>{tweet.content}</p>
+              <img src={tweet.image} alt="a meme" />
 
               <button onClick={() => {
                 this.props.deleteTweet(tweet.id);
@@ -20,15 +20,12 @@ export default class AllTweetsHome extends React.Component {
                 Delete
                 </button>
 
-
-
-              <Link to='/edit-tweet' onClick={this.props.tweetForm}>
+              <Link to='/edit-tweet'
+                onClick={this.props.tweetForm}>
                 <button>
                   Edit
                </button>
               </Link>
-
-
             </div>
           ))
         }

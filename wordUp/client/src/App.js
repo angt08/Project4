@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Login from './components/Login';
 import Register from './components/Register';
 import Header from './components/Header';
-import { withRouter } from 'react-router';
 import AllTweetsHome from './components/AllTweetsHome';
 import EditTweetForm from './components/EditTweetForm';
 import AddTweet from './components/AddTweet';
@@ -109,6 +109,7 @@ class App extends Component {
   }
 
   handleFormChange = (e) => {
+   
     const { name, value } = e.target;
     this.setState(prevState => ({
       userForm: {
@@ -117,6 +118,8 @@ class App extends Component {
       }
     }))
   }
+ 
+
 
   handleCreateFormChange = (e) => {
     const { name, value } = e.target;
@@ -162,13 +165,13 @@ class App extends Component {
   editTweet = async () => {
     const { tweetForm } = this.state
     await updateTweet(tweetForm.id, tweetForm);
-    this.setState(prevState => (
-      {
-        tweets: prevState.tweets.map(tweet => {
-          return tweet.id === tweetForm.id ? tweetForm : tweet
-        }),
-      }
-    ))
+    // this.setState(prevState => (
+    //   {
+    //     tweets: prevState.tweets.map(tweet => {
+    //       return tweet.id === tweetForm.id ? tweetForm : tweet
+    //     }),
+    //   }
+    // ))
   }
 
   handleFormChange = (e) => {
@@ -290,7 +293,6 @@ class App extends Component {
 
         <Route exact path="/edit-tweet"
           render={(props) => <EditTweetForm
-            handleChange={this.handleFormChange}
             editTweet={this.editTweet}
             tweetData={this.state.tweetForm}
             handleFormChange={this.handleFormChange}
