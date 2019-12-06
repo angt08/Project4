@@ -63,6 +63,7 @@ export const updateTweet = async (id, data) => {
   const resp = await api.put(`/tweets/${id}`, { tweet: data })
   return resp.data
 }
+
 export const createTweet = async (data) => {
   const resp = await api.post('/tweets', { tweet: data })
  

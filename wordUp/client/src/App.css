@@ -1,34 +1,69 @@
+
+
 .App {
   text-align: center;
-  background-color: rgb(109, 102, 102);
+  background-color: rgb(148, 142, 142);
+  margin:auto;
+  height: 100vh;
 }
-.auth-container{
+/* form{
+ 
+} */
+
+.forms{
   display: flex;
-  width:50%;
+  flex-direction: column;
+  background-color: rgb(206, 203, 203);
+  width:60%;
   margin: auto;
+  border-radius:10px;
+  border:solid white;
+  
 }
+
 a{
   color: white;
   text-decoration: none;
 }
-.App-logo {
-  height: 40vmin;
-}
+
 img{
   width:350px;
   height: 300px;
 }
 header{
+  
   display: inline-block;
   width: 100%;
   height: 150px;
-  background-color: rgb(111, 110, 110);
+  background-color: rgb(169, 164, 164);
 }
 #all-tweets{
-  color:white;
+  background-color: rgb(198, 199, 203);
+ 
+}
+.main{
+  min-height:1500px;
+  background-color: rgb(111, 110, 110);
+
+}
+.tweet{
+  color: white;
   background-color: rgb(69, 67, 67);
-  width:80%;
-  margin:auto;
+  width: 50%;
+  padding: 2%;
+  margin: auto;
+  border-left: solid 2px black;
+  border-right: solid 2px black;
+  height: 400px;
+}
+
+
+footer{
+  
+  width:100%;
+  background-color: rgb(138, 4, 4);
+  height: 4rem;
+  bottom:0;
 }
 
 

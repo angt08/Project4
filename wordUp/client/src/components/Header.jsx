@@ -18,6 +18,8 @@ export default function Header(props) {
           <button onClick={props.handleLoginButton}>Login/register</button>
         }
        
+    
+
       </div>
     </header>
   )

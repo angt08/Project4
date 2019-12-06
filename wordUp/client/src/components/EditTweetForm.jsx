@@ -1,12 +1,25 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { updateTweet } from '../services/api-helper'
+import {Link} from  'react-router-dom'
+
 
 function EditTweetForm(props) {
+  const editTweet = async (e) => {
+    e.preventDefault();
+    await updateTweet(props.tweetId, props.tweetData);
+    // this.setState(prevState => (
+    //   {
+    //     tweets: prevState.tweets.map(tweet => {
+    //       return tweet.id === tweetForm.id ? tweetForm : tweet
+    //     }),
+    //   }
+    // ))
+  }
   const { content, image } = props.tweetData
   return (
     <>
-      <form onSubmit={props.handleFormChange}>
-
+      <form onSubmit={editTweet}>
 
         <input
           type="text"
@@ -21,8 +34,11 @@ function EditTweetForm(props) {
           placeholder="What you thinkin'?"
           value={content}
           onChange={props.handleFormChange} />
-
+        
+       
         <button>Submit</button>
+     
+
       </form>
     </>
   )

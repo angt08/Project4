@@ -109,7 +109,7 @@ class App extends Component {
   }
 
   handleFormChange = (e) => {
-   
+
     const { name, value } = e.target;
     this.setState(prevState => ({
       userForm: {
@@ -118,7 +118,7 @@ class App extends Component {
       }
     }))
   }
- 
+
 
 
   handleCreateFormChange = (e) => {
@@ -162,17 +162,19 @@ class App extends Component {
     }))
   }
 
-  editTweet = async () => {
-    const { tweetForm } = this.state
-    await updateTweet(tweetForm.id, tweetForm);
-    this.setState(prevState => (
-      {
-        tweets: prevState.tweets.map(tweet => {
-          return tweet.id === tweetForm.id ? tweetForm : tweet
-        }),
-      }
-    ))
-  }
+  // editTweet = async (e) => {
+  //   console.log(this.state.tweet)
+  //   e.preventDefault();
+  //   const { tweetForm } = this.state
+  //   await updateTweet(this.state.tweet.id, tweetForm);
+  //   // this.setState(prevState => (
+  //   //   {
+  //   //     tweets: prevState.tweets.map(tweet => {
+  //   //       return tweet.id === tweetForm.id ? tweetForm : tweet
+  //   //     }),
+  //   //   }
+  //   // ))
+  // }
 
 
 
@@ -185,6 +187,7 @@ class App extends Component {
       }
     }))
   }
+
 
   deleteTweet = async (id) => {
     await destroyTweet(id);
@@ -246,66 +249,74 @@ class App extends Component {
           handleLoginButton={this.handleLoginButton}
           handleLogout={this.handleLogout}
           currentUser={this.state.currentUser}
-        />
-        {
-          this.state.currentUser ?
-            <>
-              <Link
-                to={"/all-tweets"}
-                render={<AllTweetsHome />}>
-                <button>All my tweets</button>
-              </Link>
-
-              <Link to={`/add-tweet`}>
-                <button>Create a tweet</button>
-              </Link> </> :
-            <></>
-        }
 
 
-        <Route exact path="/login" render={() => (
-          <Login
-            handleLogin={this.handleLogin}
-            handleChange={this.authHandleChange}
-            formData={this.state.authFormData} />)}
         />
 
-        <Route exact path="/register" render={() => (
-          <Register
-            handleRegister={this.handleRegister}
-            handleChange={this.authHandleChange}
-            formData={this.state.authFormData} />)}
-        />
 
-        <Route exact path="/all-tweets"
-          render={() => <AllTweetsHome
-            tweets={this.state.tweets}
-            deleteTweet={this.deleteTweet}
-            editTweet={this.editTweet}
-            handleFormChange={this.handleFormChange}
-          />} />
+        <div className="main">
 
 
-        <Route exact path="/add-tweet"
-          render={(props) => <AddTweet
-            handleChange={this.handleCreateFormChange}
-            newTweet={this.newTweet}
-            tweetData={this.state.tweetForm}
-          />} />
+          {
+            this.state.currentUser ?
+              <>
+                <Link
+                  to={"/all-tweets"}
+                  render={<AllTweetsHome />}>
+                  <button>All my tweets</button>
+                </Link>
 
-        <Route exact path="/edit-tweet"
-          render={(props) => <EditTweetForm
-            editTweet={this.editTweet}
-            tweetData={this.state.tweetForm}
-            handleFormChange={this.handleFormChange}
-           
-
-          />} />
+                <Link to={`/add-tweet`}>
+                  <button>Create a tweet</button>
+                </Link> </> :
+              <></>
+          }
 
 
 
+          <Route exact path="/login" render={() => (
+            <Login
+              handleLogin={this.handleLogin}
+              handleChange={this.authHandleChange}
+              formData={this.state.authFormData} />)}
+          />
+
+          <Route exact path="/register" render={() => (
+            <Register
+              handleRegister={this.handleRegister}
+              handleChange={this.authHandleChange}
+              formData={this.state.authFormData} />)}
+          />
+
+          <Route exact path="/all-tweets"
+            render={() => <AllTweetsHome
+              tweets={this.state.tweets}
+              deleteTweet={this.deleteTweet}
+              editTweet={this.editTweet}
+              handleFormChange={this.handleFormChange}
+            />} />
 
 
+          <Route exact path="/add-tweet"
+            render={(props) => <AddTweet
+              handleChange={this.handleCreateFormChange}
+              newTweet={this.newTweet}
+              tweetData={this.state.tweetForm}
+            />} />
+
+          <Route exact path="/edit-tweet/:tweetId"
+            render={(props) => <EditTweetForm
+              // editTweet={this.editTweet}
+              tweetData={this.state.tweetForm}
+              handleFormChange={this.handleFormChange}
+              tweetId={props.match.params.tweetId}
+
+            />} />
+        </div>
+
+        <footer>
+
+        </footer>
       </div>
     );
   }

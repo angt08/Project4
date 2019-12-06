@@ -5,7 +5,7 @@ export default function AddTweet(props) {
   const { content, image } = props.tweetData
 
   return (
-    <>
+    <div className="forms">
       <h2>Add new </h2>
       <form onSubmit={props.newTweet}>
         <input
@@ -25,6 +25,6 @@ export default function AddTweet(props) {
         <button>submit</button>
 
       </form>
-    </>
+    </div>
   )
 }

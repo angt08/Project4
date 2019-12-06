@@ -5,7 +5,7 @@ const Register = (props) => {
 
   return (
 
-    <div className="auth-container">
+    <div className="forms">
    
       <hr />
       <form onSubmit={props.handleRegister} >
@@ -23,7 +23,7 @@ const Register = (props) => {
           onChange={props.handleChange} />
        
         <input name="password"
-           placeholder="Password"
+           placeholder="Password minimum 6 characters"
           type="password"
           value={props.formData.password}
           onChange={props.handleChange} />

@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 const Login = (props) => {
 
   return (
-    <div className="auth-container">
+    <div className="forms">
       <form onSubmit={(e) => {
         e.preventDefault();
         props.handleLogin();
       }} >
        
       <h2>login</h2>
-      <hr />
+    
         <input name="username"
           type="text"
           placeholder="User name"
@@ -25,7 +25,7 @@ const Login = (props) => {
           placeholder="Password"
           value={props.formData.password}
           onChange={props.handleChange} />
-        <hr />
+     
         <button>Login</button>
 
         <Link to="/register">
