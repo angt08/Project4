@@ -16,7 +16,7 @@ export default class AllTweetsHome extends React.Component {
                 
                 <img src={tweet.image} alt="a meme" />
 
-                <hr/>
+                
                 <button onClick={() => {
                   this.props.deleteTweet(tweet.id);
                   // this.props.history.push('/all-tweets')
@@ -31,7 +31,6 @@ export default class AllTweetsHome extends React.Component {
                  </button>
                 </Link>
 
-                 <hr/>
 
               </div>
             ))

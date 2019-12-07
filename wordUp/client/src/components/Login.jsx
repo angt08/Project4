@@ -19,13 +19,13 @@ const Login = (props) => {
           placeholder="Username"
           value={props.formData.username}
           onChange={props.handleChange} />
-        <hr/>
+       
         <input name="password"
           type="password"
           placeholder="Password"
           value={props.formData.password}
           onChange={props.handleChange} />
-       <hr/>
+     
         <button>Login</button>
 
         <Link to="/register">
