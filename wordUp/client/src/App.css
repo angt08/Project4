@@ -13,14 +13,15 @@
 }
 
 .forms{
+  color:white;
   display: flex;
   flex-direction: column;
-  background-color: rgb(206, 203, 203);
+  background-color: #242F5F;
   width:60%;
   height:400px;
   margin: auto;
   border-radius:10px;
-  border:solid white;
+  /* border:solid white; */
   margin-top:5%;
 }
 
@@ -38,31 +39,49 @@
 
 a{
   color: white;
+  text-align:left;
   text-decoration: none;
+}
+h1{
+  margin-left:10%;
+  font-size:2em;
+  text-align:left;
+}
+h3{
+  text-align: center;
+ 
 }
 
 button{
-  margin:10px;
+  margin:3%;
   border-radius:5px;
-  color:blue;
+  color:white;
+  background-color:#1F2849;
   font-size:1em;
   width:6em;
 }
+button:hover{
+  background-color:#A7B8FE;
+}
 
 #logout-button{
-margin-bottom: 5px;
+margin-top:-10%;
+margin-bottom:5%;
+margin-right:65%;
 }
 
  ::placeholder{
-  color:rgb(26, 106, 14);
+   text-align:center;
+  color:#242F5F;
 }
 
 input{
   width:18rem;
   height:2rem;
   margin:3%;
-  border-radius: 8px;
   font-size:1em;
+  border-radius: 10px;
+  background-color:#A7B8FE;
 }
 
 /* #bork-buttons{
@@ -72,8 +91,7 @@ input{
 } */
 
 header{
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
   width: 100%;
   height: 150px;
   background-color: #A7B8FE; 
@@ -92,6 +110,7 @@ img{
   height:300px;
 }
 .tweet{
+  text-align: left;
   color: white;
   background-color:#1F2849;
   width: 65%;

@@ -16,7 +16,7 @@ const Login = (props) => {
     
         <input name="username"
           type="text"
-          placeholder="User name"
+          placeholder="Username"
           value={props.formData.username}
           onChange={props.handleChange} />
         <hr/>

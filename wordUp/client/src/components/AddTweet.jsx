@@ -10,7 +10,7 @@ export default function AddTweet(props) {
       <form onSubmit={props.newTweet}>
         <input
           type="text"
-          placeholder="What you thinkin'?"
+          placeholder="What is going on?"
           name="content"
           value={content}
           onChange={props.handleChange} />

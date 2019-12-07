@@ -8,6 +8,7 @@ export default function Header(props) {
         <Link to='/all-tweets'
           onClick={props.resetForm}>WordUp</Link>
       </h1>
+
       <div>
         {props.currentUser
           ?
@@ -25,10 +26,8 @@ export default function Header(props) {
             Login/Reg
           </button>
         }
-       
-    
-
       </div>
+
     </header>
   )
 }

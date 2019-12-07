@@ -13,6 +13,7 @@ export default class AllTweetsHome extends React.Component {
             this.props.tweets.map(tweet => (
               <div key={tweet.id} className="tweet">
                 <p>{tweet.content}</p>
+                
                 <img src={tweet.image} alt="a meme" />
 
                 <hr/>
@@ -29,7 +30,7 @@ export default class AllTweetsHome extends React.Component {
                     Edit
                  </button>
                 </Link>
-                
+
                  <hr/>
 
               </div>
