@@ -5,19 +5,25 @@ export default function Header(props) {
   return (
     <header >
       <h1>
-        <Link to='/all-tweets' onClick={props.resetForm}>WordUp</Link>
+        <Link to='/all-tweets'
+          onClick={props.resetForm}>WordUp</Link>
       </h1>
       <div>
         {props.currentUser
           ?
           <>
-            <p>{props.currentUser.username}</p>
-
-            <button onClick={props.handleLogout} id="logout-button">logout</button>
+            <h3>Meow again {props.currentUser.username}!</h3>
+            <button
+              onClick={props.handleLogout}
+              id="logout-button">logout
+            </button>
 
           </>
           :
-          <button onClick={props.handleLoginButton}>Login:register</button>
+          <button
+            onClick={props.handleLoginButton}>
+            Login/Reg
+          </button>
         }
        
     

@@ -6,7 +6,7 @@ export default function AddTweet(props) {
 
   return (
     <div className="forms">
-      <h2>Add new </h2>
+      <h3>Bork Here</h3>
       <form onSubmit={props.newTweet}>
         <input
           type="text"

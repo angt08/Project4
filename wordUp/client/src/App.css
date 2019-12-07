@@ -72,8 +72,9 @@ input{
 } */
 
 header{
-  display: inline-block;
-  width: 50%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   height: 150px;
   background-color: #A7B8FE; 
   
@@ -84,7 +85,6 @@ header{
 
 #all-tweets{
   background-color:#1F2849;
- 
 }
 
 img{
