@@ -8,7 +8,7 @@ export default class AllTweetsHome extends React.Component {
     return (
 
       <div id="all-tweets">
-        <div>
+        
           {
             this.props.tweets.map(tweet => (
               <div key={tweet.id} className="tweet">
@@ -35,7 +35,7 @@ export default class AllTweetsHome extends React.Component {
               </div>
             ))
           }
-        </div>
+        
 
       </div>
     )
