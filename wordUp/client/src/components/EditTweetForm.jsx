@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { updateTweet } from '../services/api-helper'
-import {Link} from  'react-router-dom'
+
 
 
 function EditTweetForm(props) {
@@ -18,7 +18,7 @@ function EditTweetForm(props) {
   }
   const { content, image } = props.tweetData
   return (
-    <>
+    <div id="edit-tweet-form">
       <form onSubmit={editTweet}>
 
         <input
@@ -34,13 +34,13 @@ function EditTweetForm(props) {
           placeholder="What you thinkin'?"
           value={content}
           onChange={props.handleFormChange} />
-        
+        <hr></hr>
        
         <button>Submit</button>
      
 
       </form>
-    </>
+    </div>
   )
 }
 

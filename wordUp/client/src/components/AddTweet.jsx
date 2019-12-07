@@ -22,7 +22,7 @@ export default function AddTweet(props) {
           value={image}
           onChange={props.handleChange} />
 
-        <button>submit</button>
+        <button>+</button>
 
       </form>
     </div>

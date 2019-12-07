@@ -1,24 +1,39 @@
 
-
 .App {
   text-align: center;
-  background-color: rgb(148, 142, 142);
+  background-color: #242F5F;
+ 
   margin:auto;
   height: 100vh;
 }
-/* form{
- 
-} */
+
+.main{
+  min-height:400vh;
+  background-color: #242F5F; 
+}
 
 .forms{
   display: flex;
   flex-direction: column;
   background-color: rgb(206, 203, 203);
   width:60%;
+  height:400px;
   margin: auto;
   border-radius:10px;
   border:solid white;
-  
+  margin-top:5%;
+}
+
+#edit-tweet-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width:60%;
+  height:300px;
+  margin: auto;
+  border-radius:10px;
+  border:solid white;
+  margin-top:5%;
 }
 
 a{
@@ -26,34 +41,64 @@ a{
   text-decoration: none;
 }
 
-img{
-  width:350px;
-  height: 300px;
+button{
+  margin:10px;
+  border-radius:5px;
+  color:blue;
+  font-size:1em;
+  width:6em;
 }
+
+#logout-button{
+margin-bottom: 5px;
+}
+
+ ::placeholder{
+  color:rgb(26, 106, 14);
+}
+
+input{
+  width:18rem;
+  height:2rem;
+  margin:3%;
+  border-radius: 8px;
+  font-size:1em;
+}
+
+/* #bork-buttons{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+} */
+
 header{
-  
   display: inline-block;
-  width: 100%;
+  width: 50%;
   height: 150px;
-  background-color: rgb(169, 164, 164);
+  background-color: #A7B8FE; 
+  
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
+
 #all-tweets{
-  background-color: rgb(198, 199, 203);
+  background-color:#1F2849;
  
 }
-.main{
-  min-height:1500px;
-  background-color: rgb(111, 110, 110);
 
+img{
+  width:350px;
+  height:300px;
 }
 .tweet{
   color: white;
-  background-color: rgb(69, 67, 67);
-  width: 50%;
+  background-color:#1F2849;
+  width: 65%;
   padding: 2%;
   margin: auto;
-  border-left: solid 2px black;
-  border-right: solid 2px black;
+  border-left: solid 1px rgb(255, 255, 255);
+  border-right: solid 1px rgb(255, 255, 255);
   height: 400px;
 }
 

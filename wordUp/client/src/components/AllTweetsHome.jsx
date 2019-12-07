@@ -13,6 +13,7 @@ export default class AllTweetsHome extends React.Component {
               <div key={tweet.id} className="tweet">
                 <p>{tweet.content}</p>
                 <img src={tweet.image} alt="a meme" />
+              
 
 
                 <hr></hr>
@@ -29,6 +30,7 @@ export default class AllTweetsHome extends React.Component {
                </button>
                 </Link>
                 <hr></hr>
+
               </div>
             ))
           }

@@ -6,7 +6,6 @@ const Register = (props) => {
   return (
 
     <div className="forms">
-   
       <hr />
       <form onSubmit={props.handleRegister} >
      
@@ -15,19 +14,20 @@ const Register = (props) => {
           type="text"
           value={props.formData.username}
           onChange={props.handleChange} />
-       
+       <hr/>
         <input name="email"
            placeholder="email"
           type="text"
           value={props.formData.email}
           onChange={props.handleChange} />
-       
+       <hr/>
         <input name="password"
-           placeholder="Password minimum 6 characters"
+           placeholder="Password minimum 6 "
           type="password"
           value={props.formData.password}
           onChange={props.handleChange} />
         <hr />
+
         <button>Register</button>
       </form>
     </div>

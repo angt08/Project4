@@ -255,19 +255,20 @@ class App extends Component {
 
 
         <div className="main">
-
-
           {
             this.state.currentUser ?
               <>
                 <Link
+                  id="bork-buttons"
                   to={"/all-tweets"}
                   render={<AllTweetsHome />}>
-                  <button>All my tweets</button>
+                  <button>my borks</button>
                 </Link>
 
-                <Link to={`/add-tweet`}>
-                  <button>Create a tweet</button>
+                <Link
+                  id="bork-buttons"
+                  to={`/add-tweet`}>
+                  <button>add bork</button>
                 </Link> </> :
               <></>
           }

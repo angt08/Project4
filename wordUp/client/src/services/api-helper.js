@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://localhost:3000'
 
-const baseUrl = 'https://afternoon-refuge-67431.herokuapp.com'
+// const baseUrl = 'https://afternoon-refuge-67431.herokuapp.com'
 
 const api = axios.create({
-  baseUrl
+  baseURL: baseUrl
 })
 // 
 export const loginUser = async (loginData) => {
