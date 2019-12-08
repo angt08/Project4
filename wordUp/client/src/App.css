@@ -71,23 +71,39 @@ h3{
   text-align: center;
 }
 
-button{
-  margin:3%;
-  border-radius:5px;
+.edit-delete-buttons {
+  margin:1%;
+  margin-left:3%;
+  padding:0;
+  object-fit:fill;
+  height:2em;
+  width:2em;
+  border-radius: 100px;
+  outline:none;
+  border:none;
+}
+.all-and-add-button{
+  padding:1%;
+  margin:2%;
+  border-radius:10px;
   color:white;
   background-color:#1F2849;
   font-size:1em;
   width:6em;
+  outline:none;
 }
-button:hover{
-  background-color:#A7B8FE;
+.all-and-add-button:hover{
+border-radius: 10px;
+background-color:#A7B8FE;
 }
 
+
+
 #logout-button{
-margin-top:-10%;
-margin-bottom:5%;
-margin-right:65%;
-}
+  margin-top:-10%;
+  margin-bottom:5%;
+  margin-right:65%;
+  }
 
  ::placeholder{
    text-align:center;
@@ -121,7 +137,7 @@ header{
   top: 0;
 }
 img{
-  text-align: center;
+  text-align:center;
   width:22em;
   height:19em;
 }

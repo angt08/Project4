@@ -17,17 +17,20 @@ export default class AllTweetsHome extends React.Component {
                 <img src={tweet.image} alt="a meme" />
 
                 
-                <button onClick={() => {
+                <button className="edit-delete-buttons" onClick={() => {
                   this.props.deleteTweet(tweet.id);
                   // this.props.history.push('/all-tweets')
                 }}>
-                  Delete
+                  <img className="edit-delete-buttons"
+                    src="https://i.imgur.com/pioMf5p.gif" alt="Delete" />
                 </button>
 
                 <Link to={`/edit-tweet/${tweet.id}`}>
                   {/* onClick={this.props.tweetForm}> */}
-                  <button id={tweet.id}>
-                    Edit
+                  <button className="edit-delete-buttons"
+                    id={tweet.id}>
+                    <img className="edit-delete-buttons"
+                      src="https://i.imgur.com/sLX2NkT.jpg?1" alt="Edit" />
                  </button>
                 </Link>
 

@@ -262,13 +262,13 @@ class App extends Component {
                   id="bork-buttons"
                   to={"/all-tweets"}
                   render={<AllTweetsHome />}>
-                  <button>my borks</button>
+                  <button className="all-and-add-button">my borks</button>
                 </Link>
 
                 <Link
                   id="bork-buttons"
                   to={`/add-tweet`}>
-                  <button>add bork</button>
+                  <button className="all-and-add-button">add bork</button>
                 </Link> </> :
               <></>
           }
