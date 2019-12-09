@@ -68,7 +68,6 @@ export const updateTweet = async (id, data) => {
 
 export const createTweet = async (data) => {
   const resp = await api.post('/tweets', { tweet: data })
-
   return resp.data
 }
 
@@ -81,9 +80,18 @@ export const destroyTweet = async (id) => {
 
 
 //comments 
-// export const getAllComments = async () => {
-//   const resp = await applicationCache.get('/comments')
-//   return resp.data
-// }
 
+export const getAllComments = async () => {
+  const resp = await api.get('/comments')
+  return resp.data
+}
 
+export const createComment = async (data) => {
+  const resp = await api.post('/comments', { comment: data })
+
+  return resp.data
+}
+export const destroyComment = async (id) => {
+  const resp = await api.delete(`/comments/${id}`)
+  return resp.data
+}

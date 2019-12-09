@@ -5,9 +5,18 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Header from './components/Header';
 import AllTweetsHome from './components/AllTweetsHome';
+import AddComment from './components/AddComment';
 import EditTweetForm from './components/EditTweetForm';
 import AddTweet from './components/AddTweet';
-import { getAllTweets, destroyTweet, updateTweet, createTweet } from './services/api-helper';
+import {
+  getAllTweets,
+  destroyTweet,
+  updateTweet,
+  createTweet,
+  createComment,
+  destroyComment,
+} from './services/api-helper';
+
 import {
   createUser,
   readAllUsers,
@@ -28,26 +37,36 @@ class App extends Component {
     this.state = {
       addtweet: '',
       updateTweet: '',
-      addcomment: '',
       destroyTweet: '',
+      addcomment: '',
+      destroyComment: '',
       users: [],
       userForm: {
         name: "",
         photo: ""
       },
+
       currentUser: null,
       authFormData: {
         username: "",
         email: "",
         password: ""
       },
+
       tweetForm: {
         content: "",
-        image: ""
+        image: "",
       },
-      tweets: []
+      tweets: [],
+
+      commentForm: {
+        content: "",
+        image: "",
+      },
+      comments: [],
     };
   }
+   
 
 
   async componentDidMount() {
@@ -107,7 +126,8 @@ class App extends Component {
       users: prevState.users.filter(user => user.id !== id)
     }))
   }
-
+// -------------
+  
   handleFormChange = (e) => {
 
     const { name, value } = e.target;
@@ -149,7 +169,7 @@ class App extends Component {
   }
 
 
-  //  add/update/delete a tweet
+  //----------------add/update/delete a tweet-----------
   newTweet = async (e) => {
     e.preventDefault();
     const tweet = await createTweet(this.state.tweetForm);
@@ -198,9 +218,23 @@ class App extends Component {
   }
 
 
+//-------- add/delete comments----------------
+  
+newComment = async (e) => {
+  e.preventDefault();
+  const comment = await createComment(this.state.commentForm);
+  this.setState(prevState => ({
+    comments: [...prevState.comments, comment],
+    commentForm: {
+      content: "",
+      image: " "
+    }
+  }))
+}
 
 
-  // -------------- AUTH ------------------
+
+// -------------- AUTH ------------------
 
   handleLoginButton = () => {
     this.props.history.push("/login")
@@ -238,7 +272,7 @@ class App extends Component {
       }
     }));
   }
-  // 
+
 
 
 
@@ -249,44 +283,48 @@ class App extends Component {
           handleLoginButton={this.handleLoginButton}
           handleLogout={this.handleLogout}
           currentUser={this.state.currentUser}
-
-
         />
 
 
         <div className="main">
-          {
-            this.state.currentUser ?
-              <>
-                <Link
-                  id="bork-buttons"
-                  to={"/all-tweets"}
-                  render={<AllTweetsHome />}>
-                  <button className="all-and-add-button">my borks</button>
+
+          <div id="button-links">
+            {
+              this.state.currentUser ?
+                <>
+                  <Link to="/all-tweets/"
+                    className="add-button">
+                    {/* // render={<AllTweetsHome />}> */}
+                    all borks
                 </Link>
 
-                <Link
-                  id="bork-buttons"
-                  to={`/add-tweet`}>
-                  <button className="all-and-add-button">add bork</button>
-                </Link> </> :
-              <></>
-          }
 
+                  <Link
+                    className="add-button"
+                    to={`/add-tweet`}>
+                    create
+                </Link>
+                </> :
+                <>
 
+                </>
+            }
+          </div>
 
-          <Route exact path="/login" render={() => (
-            <Login
-              handleLogin={this.handleLogin}
-              handleChange={this.authHandleChange}
-              formData={this.state.authFormData} />)}
+          <Route exact path="/login"
+            render={() => (
+              <Login
+                handleLogin={this.handleLogin}
+                handleChange={this.authHandleChange}
+                formData={this.state.authFormData} />)}
           />
 
-          <Route exact path="/register" render={() => (
-            <Register
-              handleRegister={this.handleRegister}
-              handleChange={this.authHandleChange}
-              formData={this.state.authFormData} />)}
+          <Route exact path="/register"
+            render={() => (
+              <Register
+                handleRegister={this.handleRegister}
+                handleChange={this.authHandleChange}
+                formData={this.state.authFormData} />)}
           />
 
           <Route exact path="/all-tweets"
@@ -313,6 +351,16 @@ class App extends Component {
               tweetId={props.match.params.tweetId}
 
             />} />
+         
+           <Route exact path="/add-comment"
+             render={(props) => <AddComment
+              handleChange={this.handleCreateFormChange}
+               newComment={this.newComment}
+               commentData={this.state.commentForm}
+             />} /> 
+          
+        
+
         </div>
 
         <footer>

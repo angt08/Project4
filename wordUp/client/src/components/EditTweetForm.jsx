@@ -34,6 +34,7 @@ function EditTweetForm(props) {
           placeholder="What you thinkin'?"
           value={content}
           onChange={props.handleFormChange} />
+        
         <hr/>
        
         <button>Submit</button>

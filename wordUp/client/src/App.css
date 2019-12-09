@@ -4,12 +4,14 @@
   background-color: #242F5F;
   margin:auto;
   height: 100vh;
+
 }
 
 .main{
   margin:auto;
-  min-height:400vh;
+  min-height:200vh;
   background-color: #242F5F; 
+  
 }
 
 .forms{
@@ -24,15 +26,11 @@
   margin: auto;
   border-radius:10px;
   margin-top:5%;
-
-
 -webkit-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
 -moz-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
 box-shadow: 6px 9px 16px 2px rgba(25, 32, 65, 0.58);
 }
-hr{
-  width:50%;
-}
+
 #edit-tweet-form {
   display: flex;
   flex-direction: column;
@@ -41,10 +39,13 @@ hr{
   margin: auto;
   border-radius:10px;
   margin-top:5%;
-
 -webkit-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
 -moz-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
 box-shadow: 6px 9px 16px 2px rgba(25, 32, 65, 0.58);
+}
+
+hr{
+  width:50%;
 }
 
 p{
@@ -56,19 +57,19 @@ p{
 -moz-box-shadow: 0px 16px 6px -12px rgba(36,47,95,0.56);
 box-shadow: 0px 16px 6px -12px rgba(36,47,95,0.56);
 }
-a{
-  color: white;
-  text-align:left;
-  text-decoration: none;
-}
-h1{
-  margin-left:10%;
-  font-size:2em;
-  text-align:left;
-}
+
 h3{
   color:#A7B8FE;
   text-align: center;
+  font-size: 1.1em;
+  position: -webkit-sticky;
+  position: sticky;
+}
+#web-logo{
+  margin-top:2%;
+  height:4em;
+  width:4em;
+  border-radius: 100px;
 }
 
 .edit-delete-buttons {
@@ -76,34 +77,54 @@ h3{
   margin-left:3%;
   padding:0;
   object-fit:fill;
-  height:2em;
-  width:2em;
+  height:2.2em;
+  width:2.2em;
   border-radius: 100px;
   outline:none;
   border:none;
 }
-.all-and-add-button{
-  padding:1%;
-  margin:2%;
-  border-radius:10px;
-  color:white;
+
+.add-button {
+  padding: 1.2%;
+  margin:1%;
+  text-decoration: none;
+  border-radius:10px; 
+  color:rgb(255, 255, 255);
   background-color:#1F2849;
   font-size:1em;
   width:6em;
   outline:none;
+  transition: all .2s ease-in;
+  transition: all .2s ease-out; 
 }
-.all-and-add-button:hover{
+
+
+.add-button:hover {
 border-radius: 10px;
-background-color:#A7B8FE;
+color:#1f2849;
+background-color:rgb(192, 201, 235);
 }
 
-
+#button-links{
+  margin: 3%;
+}
 
 #logout-button{
-  margin-top:-10%;
-  margin-bottom:5%;
   margin-right:65%;
+  color:pink;
   }
+
+.add-form-button{
+  padding: 1.2%;
+  margin:8%;
+  text-decoration: none;
+  border-radius:100px; 
+  color:rgb(255, 255, 255);
+  background-color:#1F2849;
+  font-size:1em;
+  width:4em;
+  outline:none;
+}
 
  ::placeholder{
    text-align:center;
@@ -117,15 +138,10 @@ input{
   margin:auto;
   margin-top:10%;
   font-size:1em;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color:#A7B8FE;
 }
-/* 
-#bork-buttons{
-  position: -webkit-sticky;
-  position: sticky;
-  
-} */
+
 
 header{
   display: inline-block;
@@ -136,6 +152,7 @@ header{
   position: sticky;
   top: 0;
 }
+
 img{
   text-align:center;
   width:22em;
@@ -144,7 +161,7 @@ img{
 #all-tweets{
   display:flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   text-align: center;
   background-color:#1F2849;
   margin:auto;
@@ -153,7 +170,7 @@ img{
 .tweet{
   color: white;
   background-color:#1F2849;
-  width: 85%;
+  width: 75%;
   padding: 2%;
   height: 400px;
   margin:auto;
@@ -176,18 +193,6 @@ footer{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* media queries */
 @media only screen 
   and (min-device-width: 320px) 
@@ -200,6 +205,7 @@ footer{
     }
     .forms{
       width:80%;
+      height:250px;
     }
     #all-tweets{
       height:auto;
@@ -210,6 +216,12 @@ footer{
       margin:auto;
     }
 
+    #web-logo{
+      margin-top:5%;
+      height:6em;
+      width:6em;
+      border-radius: 100px;
+    }
     .tweet{
       text-align: left;
       color: white;
@@ -229,7 +241,9 @@ footer{
     height:2rem;
     margin:3%;
     font-size:1em;
-    border-radius: 10px;
+    border-radius: 20px;
+    border:none;
+    outline:none;
     background-color:#A7B8FE;
   }
 
@@ -252,6 +266,7 @@ footer{
       display:flex;
       flex-direction: column;
       width:80%;
+      
     }
    
     #all-tweets{
@@ -261,6 +276,12 @@ footer{
       text-align: center;
       background-color:#1F2849;
       margin:auto;
+    }
+    #web-logo{
+      margin-top:5%;
+      height:6em;
+      width:6em;
+      border-radius: 100px;
     }
 
     .tweet{
@@ -282,8 +303,9 @@ footer{
     height:2rem;
     margin:3%;
     font-size:1em;
-    border-radius: 10px;
+    border:none;
+    border-radius: 20px;
+    outline:none;
     background-color:#A7B8FE;
   }
-
 }

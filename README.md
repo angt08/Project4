@@ -24,13 +24,15 @@ User || Tweet || Comment
 ####  Comment  
 + comments belong to one tweet
 
-####  API paths
+####  Browser paths
 1. WordUp.com/home
 1. WordUp.com/userName
 1. WordUp.com/compose/tweet
 1. WordUp.com/compose/tweet (to add a comment a modal pops up)
 1. WordUp.com/register-user(modal form)
 1. WordUp.com/login-user(modal form)
+
+
 
 ### MVP 
 For MVP:register a user,user can be authenticated,and make a tweet.
