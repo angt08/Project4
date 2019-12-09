@@ -7,12 +7,12 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
 
-    render json: @tweets
+    render json: @tweets, include: [:user, {comments: {include: :user}}]
   end
 
   # GET /tweets/1
   def show
-    render json: @tweet
+    render json: @tweet, include: [:user, {comments: {include: :user}}]
   end
 
   # POST /tweets
@@ -38,7 +38,7 @@ class TweetsController < ApplicationController
 
   # DELETE /tweets/1
   def destroy
-    @tweet.destroy
+    @tweet.destroy 
   end
 
   private

@@ -65,6 +65,7 @@ h3{
   position: -webkit-sticky;
   position: sticky;
 }
+
 #web-logo{
   margin-top:2%;
   height:4em;
@@ -94,10 +95,9 @@ h3{
   font-size:1em;
   width:6em;
   outline:none;
-  transition: all .2s ease-in;
-  transition: all .2s ease-out; 
+  transition: all .3s ease-in;
+  transition: all .3s ease-out; 
 }
-
 
 .add-button:hover {
 border-radius: 10px;
@@ -142,7 +142,6 @@ input{
   background-color:#A7B8FE;
 }
 
-
 header{
   display: inline-block;
   width: 100%;
@@ -158,6 +157,7 @@ img{
   width:22em;
   height:19em;
 }
+
 #all-tweets{
   display:flex;
   flex-direction: column;
@@ -179,7 +179,6 @@ img{
 -moz-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
 box-shadow: 6px 9px 16px 2px rgba(25, 32, 65, 0.58);
 }
-
 
 footer{
   width:100%;
@@ -299,13 +298,13 @@ footer{
   }
 
   input{
-    width:14rem;
+    width:12rem;
     height:2rem;
-    margin:3%;
+    margin:5%;
     font-size:1em;
     border:none;
-    border-radius: 20px;
     outline:none;
+    border-radius: 20px;
     background-color:#A7B8FE;
   }
 }

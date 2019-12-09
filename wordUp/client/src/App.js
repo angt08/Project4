@@ -66,7 +66,7 @@ class App extends Component {
       comments: [],
     };
   }
-   
+
 
 
   async componentDidMount() {
@@ -126,8 +126,8 @@ class App extends Component {
       users: prevState.users.filter(user => user.id !== id)
     }))
   }
-// -------------
-  
+  // -------------
+
   handleFormChange = (e) => {
 
     const { name, value } = e.target;
@@ -218,23 +218,40 @@ class App extends Component {
   }
 
 
-//-------- add/delete comments----------------
-  
-newComment = async (e) => {
-  e.preventDefault();
-  const comment = await createComment(this.state.commentForm);
-  this.setState(prevState => ({
-    comments: [...prevState.comments, comment],
-    commentForm: {
-      content: "",
-      image: " "
-    }
-  }))
-}
+  //-------- add/delete comments----------------
+
+  newComment = async (e) => {
+    e.preventDefault();
+    const comment = await createComment(this.state.currentUser.id, this.props.match.params.tweet_id, this.state.commentForm);
+    this.setState(prevState => ({
+      comments: [...prevState.comments, comment],
+      commentForm: {
+        content: "",
+        image: " "
+      }
+    }))
+  }
+
+  handleCreateFormChangeComment = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      commentForm: {
+        ...prevState.commentForm,
+        [name]: value
+      }
+    }))
+  }
+
+  deleteComment = async (id) => {
+    await destroyComment(id);
+    this.setState(prevState => ({
+      comments: prevState.comments.filter(comment => comment.id !== id)
+    }))
+    this.props.history.push('/all-tweets')
+  }
 
 
-
-// -------------- AUTH ------------------
+  // -------------- AUTH ------------------
 
   handleLoginButton = () => {
     this.props.history.push("/login")
@@ -246,7 +263,6 @@ newComment = async (e) => {
     await this.getTweets()
     this.props.history.push(`/user/${this.state.currentUser.id}`);
     console.log(this.state.currentUser);
-
   }
 
   handleRegister = async (e) => {
@@ -333,6 +349,7 @@ newComment = async (e) => {
               deleteTweet={this.deleteTweet}
               editTweet={this.editTweet}
               handleFormChange={this.handleFormChange}
+              deleteComment={this.deleteComment}
             />} />
 
 
@@ -351,15 +368,18 @@ newComment = async (e) => {
               tweetId={props.match.params.tweetId}
 
             />} />
-         
-           <Route exact path="/add-comment"
-             render={(props) => <AddComment
-              handleChange={this.handleCreateFormChange}
-               newComment={this.newComment}
-               commentData={this.state.commentForm}
-             />} /> 
-          
-        
+
+          <Route exact path="/:tweet_id/add-comment/"
+            render={(props) => <AddComment
+              handleChange={this.handleCreateFormChangeComment}
+              newComment={this.newComment}
+              commentForm={this.state.commentForm}
+              tweet_id={props.match.params.tweet_id}
+              currentUser={this.state.currentUser}
+              deleteComment={this.deleteComment}
+            />} />
+
+
 
         </div>
 

@@ -17,6 +17,8 @@ tweet = Tweet.create({
 })
 comment = Comment.create({
   content: 'LMFAO',
+  user_id: 1,
+  tweet_id: 1
  
 })
 puts "#{User.count} Users created!"

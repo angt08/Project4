@@ -81,17 +81,23 @@ export const destroyTweet = async (id) => {
 
 //comments 
 
-export const getAllComments = async () => {
-  const resp = await api.get('/comments')
+export const getAllComments = async (tweet_id) => {
+  const resp = await api.get(`/tweets/${tweet_id}/comments`)
   return resp.data
 }
 
-export const createComment = async (data) => {
-  const resp = await api.post('/comments', { comment: data })
+export const createComment = async (user_id, tweet_id, data) => {
+  data.user_id = user_id
+  data.tweet_id = tweet_id
+  const resp = await api.post(`/tweets/${tweet_id}/comments`, { comment: data })
 
   return resp.data
 }
-export const destroyComment = async (id) => {
-  const resp = await api.delete(`/comments/${id}`)
+export const destroyComment = async (comment_id) => {
+  const resp = await api.delete(`/tweets/:tweet_id/comments/${comment_id}`)
   return resp.data
 }
+// export const destroyComment = async (tweet_id, comment_id) => {
+//   const resp = await api.delete(`/tweets/${tweet_id}/comments/${comment_id}`)
+//   return resp.data
+// }
