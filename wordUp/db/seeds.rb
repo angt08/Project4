@@ -28,39 +28,60 @@ comment = Comment.create({
  
 })
 
-# user ang
+# user ang user 2
 user = User.create({
   username: 'ang',
   email: 'ang@ang.com',
   password: '345678',
 })
 tweet = Tweet.create({
-  content: '',
-  image: 'https://i.imgur.com/3gdnEq0.jpg',
+  content: 'when they bring me seed in stead of cupcakes for snack',
+  image: 'https://i.imgur.com/W1UPsJf.jpg',
   user_id: 2
 })
 comment = Comment.create({
-  content: 'Oh, wow, so profound',
-  user_id: 1,
+  content: 'same',
+  user_id: 3,
   tweet_id: 2
  
 })
 
-# 
+# kitCakes user 3
 user = User.create({
-  username: 'tasha',
+  username: 'kitcakes',
   email: 'tasha@aol.com',
   password: 'tasha1',
 })
 tweet = Tweet.create({
-  content: 'MY humans face when they ask for the homework I ate',
-  image: 'https://i.imgur.com/3gdnEq0.jpg',
-  user_id: 2
+  content: 'that catnip be hittin different',
+  image: 'https://media.giphy.com/media/jJqWEAYkWrxWE/giphy.gif',
+  user_id: 3
 })
 comment = Comment.create({
-  content: 'Oh, wow, so profound',
+  content: 'omg, when they drop food on the floor!',
   user_id: 1,
-  tweet_id: 2
+  tweet_id: 3
  
 })
+
+
+# user 4
+
+user = User.create({
+  username: 'shinister_lumps',
+  email: 'sake@shots.com',
+  password: 'sakess',
+})
+tweet = Tweet.create({
+  content: 'how i look at guests so they can sneak me treats',
+  image: 'https://i.imgur.com/HJZ1te9.jpg',
+  user_id: 4
+})
+comment = Comment.create({
+  content: 'huehuehuehuehue',
+  user_id: 2,
+  tweet_id: 4
+ 
+})
+
 puts "#{User.count} Users created!"

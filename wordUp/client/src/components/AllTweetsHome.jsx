@@ -9,10 +9,12 @@ export default class AllTweetsHome extends React.Component {
 
       <div id="all-tweets">
 
+        
+
         {
           this.props.tweets.map(tweet => (
             <div key={tweet.id} className="tweet">
-              
+              <h4>@{tweet.user.username}</h4>
               <p>{tweet.content}</p>
               <img src={tweet.image} alt="a meme" />
 
@@ -74,11 +76,11 @@ export default class AllTweetsHome extends React.Component {
                   />
                 </Link>
               </div>
-
             </div>
 
           ))
         }
+       
       </div>
     )
   }

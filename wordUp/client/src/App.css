@@ -119,6 +119,7 @@ background-color:rgb(192, 201, 235);
 }
 
 .logout-button{
+  
   margin-right:65%;
   margin-top: -50%;
   border-radius:100px; 
@@ -127,15 +128,16 @@ background-color:rgb(192, 201, 235);
   width: 3em;
   height: 3em;
   }
+
 #register{
   color:white;
   border:none;
   outline:none;
   background-color:black;
 }
-#register:hover{
+/* #register:hover{
 
-}
+} */
 
 .add-form-button{
   padding: 1.2%;
@@ -190,9 +192,11 @@ img{
   height:19em;
 }
 
+
 #all-tweets{
   display:flex;
   flex-direction: column;
+grid-template-columns: 1fr,1fr;
   width: 95%;
   text-align: center;
   background-color:#1F2849;
@@ -202,10 +206,11 @@ img{
 .tweet{
   color: white;
   background-color:#1F2849;
-  width: 50%;
+  width: 45%;
   padding: 2%;
   height:auto;
   margin:auto;
+  margin-right:auto;
 
 -webkit-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
 -moz-box-shadow: 6px 9px 16px 2px rgba(36,47,95,0.58);
