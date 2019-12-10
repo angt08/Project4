@@ -28,7 +28,7 @@ const Register = (props) => {
           onChange={props.handleChange} />
       
       <hr/>
-        <button>Register</button>
+        <button  id="register">Register</button>
       </form>
     </div>
 

@@ -12,17 +12,19 @@ export default class AllTweetsHome extends React.Component {
         {
           this.props.tweets.map(tweet => (
             <div key={tweet.id} className="tweet">
+              
               <p>{tweet.content}</p>
-
               <img src={tweet.image} alt="a meme" />
+
+
 
               <button className="edit-delete-buttons" onClick={() => {
                 this.props.deleteTweet(tweet.id);
                 // this.props.history.push('/all-tweets')
               }}>
                 <img className="edit-delete-buttons"
-                  src="https://i.imgur.com/pioMf5p.gif" alt="Delete" />
-
+                  src="https://i.imgur.com/pioMf5p.gif" alt="Delete"
+                  title="Delete" />
               </button>
 
               <Link to={`/edit-tweet/${tweet.id}`}>
@@ -31,7 +33,8 @@ export default class AllTweetsHome extends React.Component {
                 <button className="edit-delete-buttons"
                   id={tweet.id}>
                   <img className="edit-delete-buttons"
-                    src="https://i.imgur.com/sLX2NkT.jpg?1" alt="Edit" />
+                    src="https://i.imgur.com/sLX2NkT.jpg?1" alt="Edit"
+                    title="Edit" />
                 </button>
               </Link >
 
@@ -39,27 +42,41 @@ export default class AllTweetsHome extends React.Component {
                 tweet.comments.map(comment => (
 
                   <div key={comment.id}>
-                    <p><span>{comment.user.username}</span> {comment.content}</p>
-
-                    <button className="edit-delete-buttons" onClick={() => {
-                      this.props.deleteComment(comment.id);
+                    <h4>
+                      @{comment.user.username}
+                    </h4>
+                    <p>
+                    {comment.content}
+                    </p>
                       
+                    
+                    <div className="comment-buttons" onClick={() => {
+                      this.props.deleteComment(comment.id);
+
                     }}>
-                      <img className="edit-delete-buttons"
-                        src="https://i.imgur.com/pioMf5p.gif" alt="Delete" />
-                    </button>
+                      <span>
+
+                      <img className="comment-buttons"
+                        src="https://i.imgur.com/pioMf5p.gif" alt="Delete" title="Delete comment" />
+                      </span>
+                    </div>
                   </div>
                 ))
               }
 
-              <Link className="edit-delete-buttons"
-                to={`/${tweet.id}/add-comment`}>Add Comment
-              </Link>
-
-
-
+              <div className="comment-buttons">
+                <Link className="comment-buttons"
+                  to={`/${tweet.id}/add-comment`}>
+                  <img
+                    className="comment-buttons"
+                    src="https://i.imgur.com/9v0iFXy.jpg" alt="comment"
+                    title="Comment"
+                  />
+                </Link>
+              </div>
 
             </div>
+
           ))
         }
       </div>

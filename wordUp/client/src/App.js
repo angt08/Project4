@@ -345,6 +345,7 @@ class App extends Component {
 
           <Route exact path="/all-tweets"
             render={() => <AllTweetsHome
+             
               tweets={this.state.tweets}
               deleteTweet={this.deleteTweet}
               editTweet={this.editTweet}

@@ -7,20 +7,24 @@ export default function Header(props) {
       <Link
         to='/all-tweets'
         onClick={props.resetForm}>
-        {/* <h1>WordUp</h1> */}
         <img id="web-logo"
           src="https://i.imgur.com/nMLlupR.png" alt="Edit" />
       </Link>
-      
+
       <>
 
         {props.currentUser
           ?
           <>
             <h3>Meow again {props.currentUser.username}!</h3>
-            
+
             <button onClick={props.handleLogout}
-              id="logout-button">logout
+             className="logout-button">
+              <img
+                className="logout-button"
+                src="https://i.imgur.com/tVJRj5r.png"
+                alt="log-out"
+                title="logout" />
             </button>
 
           </>
