@@ -8,13 +8,6 @@ function EditTweetForm(props) {
   const editTweet = async (e) => {
     e.preventDefault();
     await updateTweet(props.tweetId, props.tweetData);
-    // this.setState(prevState => (
-    //   {
-    //     tweets: prevState.tweets.map(tweet => {
-    //       return tweet.id === tweetForm.id ? tweetForm : tweet
-    //     }),
-    //   }
-    // ))
   }
   const { content, image } = props.tweetData
   return (

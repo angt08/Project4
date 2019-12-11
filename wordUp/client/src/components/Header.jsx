@@ -7,8 +7,11 @@ export default function Header(props) {
       <Link
         to='/all-tweets'
         onClick={props.resetForm}>
-        <img id="web-logo"
-          src="https://i.imgur.com/nMLlupR.png" alt="Edit" />
+        <img
+          id="web-logo"
+          src="https://i.imgur.com/nMLlupR.png"
+          alt="Edit"
+        />
       </Link>
 
       <>
@@ -18,20 +21,17 @@ export default function Header(props) {
           <>
             <h3>Meow again {props.currentUser.username}!</h3>
 
-            <button onClick={props.handleLogout}
-             className="logout-button">
-              <img
+                <img onClick={props.handleLogout}
                 className="logout-button"
                 src="https://i.imgur.com/tVJRj5r.png"
                 alt="log-out"
-                title="logout" />
-            </button>
-
+                title="logout"
+              />
           </>
           :
           <button onClick={props.handleLoginButton}>
             Login/Reg
-          </button>
+      </button>
         }
       </>
 

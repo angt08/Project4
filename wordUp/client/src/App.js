@@ -11,7 +11,6 @@ import AddTweet from './components/AddTweet';
 import {
   getAllTweets,
   destroyTweet,
-  updateTweet,
   createTweet,
   createComment,
   destroyComment,
@@ -50,7 +49,8 @@ class App extends Component {
       authFormData: {
         username: "",
         email: "",
-        password: ""
+        password: "",
+        image:"",
       },
 
       tweetForm: {
@@ -129,7 +129,6 @@ class App extends Component {
   // -------------
 
   handleFormChange = (e) => {
-
     const { name, value } = e.target;
     this.setState(prevState => ({
       userForm: {
@@ -181,21 +180,6 @@ class App extends Component {
       }
     }))
   }
-
-  // editTweet = async (e) => {
-  //   console.log(this.state.tweet)
-  //   e.preventDefault();
-  //   const { tweetForm } = this.state
-  //   await updateTweet(this.state.tweet.id, tweetForm);
-  //   // this.setState(prevState => (
-  //   //   {
-  //   //     tweets: prevState.tweets.map(tweet => {
-  //   //       return tweet.id === tweetForm.id ? tweetForm : tweet
-  //   //     }),
-  //   //   }
-  //   // ))
-  // }
-
 
 
   handleFormChange = (e) => {
@@ -310,7 +294,6 @@ class App extends Component {
                 <>
                   <Link to="/all-tweets/"
                     className="add-button">
-                    {/* // render={<AllTweetsHome />}> */}
                     all borks
                 </Link>
 
