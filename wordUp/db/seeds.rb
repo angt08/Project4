@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create({
+  image: 'https://i.imgur.com/vaIPvMQ.jpg',
   username: 'Jujube',
   email: 'juju@aim.com',
   password: '123456',
@@ -17,19 +18,14 @@ tweet = Tweet.create({
 })
 comment = Comment.create({
   content: 'LMFAO',
-  user_id: 1,
-  tweet_id: 1
- 
-})
-comment = Comment.create({
-  content: 'LMFAO',
   user_id: 2,
   tweet_id: 1
  
 })
 
-# user ang user 2
+# user ang user 2 bird
 user = User.create({
+  image:'https://i.imgur.com/HsG96hJ.jpg',
   username: 'ang',
   email: 'ang@ang.com',
   password: '345678',
@@ -48,7 +44,8 @@ comment = Comment.create({
 
 # kitCakes user 3
 user = User.create({
-  username: 'kitcakes',
+  image:'https://i.imgur.com/IcOeJDT.jpg',
+  username: 'da_catkes',
   email: 'tasha@aol.com',
   password: 'tasha1',
 })
@@ -65,9 +62,10 @@ comment = Comment.create({
 })
 
 
-# user 4
+# user 4 dog
 
 user = User.create({
+  image:'https://i.imgur.com/JI7wbK3.jpg',
   username: 'shinister_lumps',
   email: 'sake@shots.com',
   password: 'sakess',

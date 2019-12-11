@@ -13,7 +13,9 @@ export default class AllTweetsHome extends React.Component {
 
         {
           this.props.tweets.map(tweet => (
-            <div key={tweet.id} className="tweet">
+           
+            < div key = { tweet.id } className = "tweet" >
+             <img  id="id-pic" src={tweet.user.image} alt="a meme" />
               <h4>@{tweet.user.username}</h4>
               <p>{tweet.content}</p>
               <img src={tweet.image} alt="a meme" />
